@@ -3,7 +3,11 @@ from django.db import models
 
 
 class Cook(AbstractUser):
-    years_of_experience = models.IntegerField()
+    years_of_experience = models.IntegerField(default=0)
+
+    class Meta:
+        verbose_name = "Cook"
+        verbose_name_plural = "Cooks"
 
     def __str__(self):
         return self.username
