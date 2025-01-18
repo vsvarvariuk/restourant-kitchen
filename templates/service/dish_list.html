@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Dish list</h1>
+    {% if dish_list %}
+        {% for dish in dish_list %}
+           <ul>
+           <li>{{ dish.name }}</li>
+           </ul>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
