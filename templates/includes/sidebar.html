@@ -2,6 +2,6 @@
   <li class="list-group-item"><a href={% url "service:index" %}>Home</a></li>
   <li class="list-group-item"><a href="{% url "service:dishtype-list" %}">All Dish type</a></li>
   <li class="list-group-item"><a href="{% url "service_url:dish-list" %}">All Dishes</a></li>
-  <li class="list-group-item"><a href="#">All Ingredients</a></li>
-    <li class="list-group-item"><a href="#">All Cooks</a></li>
+  <li class="list-group-item"><a href="{% url "service:ingredient-list" %}">All Ingredients</a></li>
+    <li class="list-group-item"><a href="{% url "service:cook-list" %}">All Cooks</a></li>
 </ul>
