@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "bootstrap4",
+    "crispy_forms",
+    "crispy_bootstrap4",
     "service",
 ]
 
@@ -134,3 +136,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "service.Cook"
 
+CRISPY_TEMPLATE_PACK = "bootstrap4"

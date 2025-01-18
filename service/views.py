@@ -1,5 +1,6 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
 from service.models import (Ingredient,
@@ -34,6 +35,11 @@ class DishListView(generic.ListView):
     template_name = "service/dish_list.html"
 
 
+class DishDetailView(generic.DetailView):
+    model = Dish
+    template_name = "service/dish_detail.html"
+
+
 class IngredientListView(generic.ListView):
     model = Ingredient
     paginate_by = 7
@@ -44,6 +50,18 @@ class CookListView(generic.ListView):
     model = Cook
     paginate_by = 7
     template_name = "service/cook_list.html"
+
+
+class CookCreateView(generic.CreateView):
+    model = Cook
+    fields = ("username", "first_name", "last_name", "years_of_experience")
+    success_url = reverse_lazy("service_url:cook-list")
+    template_name = "service/cook_create.html"
+
+
+class CookDetailView(generic.DetailView):
+    model = Cook
+    template_name = "service/cook_detail.html"
 
 
 
