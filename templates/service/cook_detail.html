@@ -5,7 +5,7 @@
     <li><strong>First name:</strong> {{ cook.first_name }}</li>
     <li><strong>Last name:</strong> {{ cook.last_name }}</li>
     <li><strong>Years of experience:</strong> {{ cook.years_of_experience }}</li>
-        <a href="{% url "service:cook-delete" pk=cook.id %}"><button class="btn btn-danger">Delete</button></a>
-
     </ul>
+     <a href="{% url "service:cook-delete" pk=cook.id %}"><button class="btn btn-danger">Delete</button></a>
+        <a href="{% url "service:cook-update" pk=cook.id %}"><button class="btn btn-secondary">Update</button></a>
 {% endblock %}

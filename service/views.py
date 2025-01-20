@@ -40,6 +40,20 @@ class DishDetailView(generic.DetailView):
     template_name = "service/dish_detail.html"
 
 
+class DishUpdateView(generic.UpdateView):
+    model = Dish
+    fields = "__all__"
+    success_url = reverse_lazy("service:dish-list")
+    template_name = "service/dish_form.html"
+
+
+class DishCreateView(generic.CreateView):
+    model = Dish
+    fields = "__all__"
+    success_url = reverse_lazy("service:dish-list")
+    template_name = "service/dish_form.html"
+
+
 class IngredientListView(generic.ListView):
     model = Ingredient
     paginate_by = 7
@@ -56,7 +70,7 @@ class CookCreateView(generic.CreateView):
     model = Cook
     fields = ("username", "first_name", "last_name", "years_of_experience")
     success_url = reverse_lazy("service_url:cook-list")
-    template_name = "service/cook_create.html"
+    template_name = "service/cook_form.html"
 
 
 class CookDetailView(generic.DetailView):
@@ -68,6 +82,13 @@ class CookDeleteView(generic.DeleteView):
     model = Cook
     success_url = reverse_lazy("service:cook-list")
     template_name = "service/cook_delete.html"
+
+
+class CookUpdateView(generic.UpdateView):
+    model = Cook
+    fields = ("username", "first_name", "last_name", "years_of_experience")
+    success_url = reverse_lazy("service:cook-list")
+    template_name = "service/cook_form.html"
 
 
 
