@@ -7,7 +7,9 @@
     {% if dishtype_list %}
         {% for dish in dishtype_list %}
            <ul>
-           <li>{{ dish.name }}</li>
+           <li>
+               <a href="{% url "service:dishtype-detail" pk=dish.id %}">{{ dish }}</a>
+           </li>
            </ul>
         {% endfor %}
     {% endif %}

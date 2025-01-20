@@ -36,6 +36,10 @@ class DishTypeCreateView(generic.CreateView):
     template_name = "service/dishtype_create.html"
 
 
+class DishTypeDetailView(generic.DetailView):
+    model = Dishtype
+    template_name = "service/dishtype_detail.html"
+
 class DishListView(generic.ListView):
     model = Dish
     paginate_by = 7

@@ -5,6 +5,11 @@
         <li><strong>Dish type:</strong> {{ dish.dish_type }}</li>
         <li><strong>Description:</strong> {{ dish.description }}</li>
         <li><strong>Price:</strong> {{ dish.price }}</li>
+        <li><strong>Ingredients:</strong>
+                {% for ingredient in dish.ingredient_set.all %}
+                    <ul>{{ ingredient.name }}</ul>
+                {% endfor %}
+        </li>
         <li><strong>Cooks:</strong>
             {% for cook in dish.cooks.all %}
                 <ul>
@@ -12,11 +17,6 @@
                 </ul>
 
             {% endfor %}
-        </li>
-        <li><strong>Ingredients:</strong>
-                {% for ingredient in dish.ingredient_set.all %}
-                    {{ ingredient.name }}
-                {% endfor %}
         </li>
     </ul>
     <a href="{% url "service:dish-update" pk=dish.id %}"><button class="btn btn-secondary">Update</button></a>
