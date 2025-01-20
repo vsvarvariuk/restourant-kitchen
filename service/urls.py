@@ -6,6 +6,7 @@ from .views import (index,
                     IngredientListView,
                     CookListView,
                     CookCreateView,
+                    CookDeleteView,
                     CookDetailView)
 
 urlpatterns = [
@@ -16,6 +17,7 @@ urlpatterns = [
    path("ingredient/", IngredientListView.as_view(), name="ingredient-list"),
    path("cooks/", CookListView.as_view(), name="cook-list"),
    path("cooks-create/", CookCreateView.as_view(), name="cook-create"),
+   path("cooks-delete/<int:pk>/", CookDeleteView.as_view(), name="cook-delete"),
    path("cooks-detail/<int:pk>/", CookDetailView.as_view(), name="cook-detail"),
 
 ]
