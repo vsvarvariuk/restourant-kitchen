@@ -82,6 +82,13 @@ class IngredientListView(generic.ListView):
     template_name = "service/ingredient_list.html"
 
 
+class IngredientCreateView(generic.CreateView):
+    model = Ingredient
+    fields = "__all__"
+    success_url = reverse_lazy("service:ingredient-list")
+    template_name = "service/ingredient_create.html"
+
+
 class CookListView(generic.ListView):
     model = Cook
     paginate_by = 7

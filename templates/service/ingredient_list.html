@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Ingredient list</h1>
+    <h1>Ingredient list
+        <a href="{% url "service:ingredient-create" %}">
+            <button class="btn btn-secondary">Add ingredient</button>
+        </a>
+    </h1>
     {% if ingredient_list %}
         {% for ingredient in ingredient_list %}
            <ul>

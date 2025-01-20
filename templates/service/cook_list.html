@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <h1>Cook list <a href="{% url "service_url:cook-create" %}">
-        <button class="btn btn-secondary">Add</button>
+        <button class="btn btn-secondary">Add cook</button>
     </a></h1>
     {% if cook_list %}
         {% for cook in cook_list %}
