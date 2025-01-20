@@ -35,6 +35,11 @@ class DishTypeCreateView(generic.CreateView):
     success_url = reverse_lazy("service:dishtype-list")
     template_name = "service/dishtype_create.html"
 
+class DishTypeDeleteView(generic.DeleteView):
+    model = Dishtype
+    success_url = reverse_lazy("service:dishtype-list")
+    template_name = "service/dishtype_delete.html"
+
 
 class DishTypeDetailView(generic.DetailView):
     model = Dishtype

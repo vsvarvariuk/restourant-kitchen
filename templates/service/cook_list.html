@@ -7,7 +7,9 @@
         {% for cook in cook_list %}
            <ul>
            <li>
-               <a href="{% url "service:cook-detail" pk=cook.id %}">{{ cook.username }}</a>
+               <strong>
+                   <a href="{% url "service:cook-detail" pk=cook.id %}">{{ cook.username }}</a>
+               </strong>
            </li>
            </ul>
         {% endfor %}

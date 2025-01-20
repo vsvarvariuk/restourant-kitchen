@@ -5,12 +5,33 @@
             <button class="btn btn-secondary">Add</button>
         </a></h1>
     {% if dishtype_list %}
-        {% for dish in dishtype_list %}
-           <ul>
-           <li>
-               <a href="{% url "service:dishtype-detail" pk=dish.id %}">{{ dish }}</a>
-           </li>
-           </ul>
+        <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Dish type</th>
+            <th>All dishes</th>
+            <th>DELETE</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for dishtype in dishtype_list %}
+            <tr>
+            <td>{{ dishtype.id }}</td>
+            <td>{{ dishtype.name }}</td>
+            <td>
+                <a href="{% url "service:dishtype-detail" pk=dishtype.pk %}">Show all</a>
+            </td>
+            <td>
+                <a href="{% url "service_url:dishtype-delete" pk=dishtype.id %}">
+                    <button class="btn btn-danger">Delete</button>
+                </a>
+            </td>
+            </tr>
         {% endfor %}
+
+        </tbody>
+        </table>
+
     {% endif %}
 {% endblock %}

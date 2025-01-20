@@ -8,7 +8,11 @@
     {% if dish_list %}
         {% for dish in dish_list %}
            <ul>
-           <li><a href="{% url "service:dish-detail" pk=dish.id %}">{{ dish.name }}</a></li>
+           <li>
+               <strong>
+                   <a href="{% url "service:dish-detail" pk=dish.id %}">{{ dish.name }}</a>
+               </strong>
+           </li>
            </ul>
         {% endfor %}
     {% endif %}
