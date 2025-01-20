@@ -6,7 +6,7 @@
         <li><strong>Description:</strong> {{ dish.description }}</li>
         <li><strong>Price:</strong> {{ dish.price }}</li>
         <li><strong>Ingredients:</strong>
-                {% for ingredient in dish.ingredient_set.all %}
+                {% for ingredient in dish.ingredients.all %}
                     <ul>{{ ingredient.name }}</ul>
                 {% endfor %}
         </li>
