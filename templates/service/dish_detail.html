@@ -12,4 +12,5 @@
         </li>
     </ul>
     <a href="{% url "service:dish-update" pk=dish.id %}"><button class="btn btn-secondary">Update</button></a>
+    <a href="{% url "service:dish-delete" pk=dish.id %}"><button class="btn btn-secondary">Delete</button></a>
 {% endblock %}

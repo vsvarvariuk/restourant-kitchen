@@ -54,6 +54,12 @@ class DishCreateView(generic.CreateView):
     template_name = "service/dish_form.html"
 
 
+class DishDeleteView(generic.DeleteView):
+    model = Dish
+    success_url = reverse_lazy("service:cook-list")
+    template_name = "service/dish_delete.html"
+
+
 class IngredientListView(generic.ListView):
     model = Ingredient
     paginate_by = 7
