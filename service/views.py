@@ -29,6 +29,13 @@ class DishTypeListView(generic.ListView):
     template_name = "service/dishtype_list.html"
 
 
+class DishTypeCreateView(generic.CreateView):
+    model = Dishtype
+    fields = "__all__"
+    success_url = reverse_lazy("service:dishtype-list")
+    template_name = "service/dishtype_create.html"
+
+
 class DishListView(generic.ListView):
     model = Dish
     paginate_by = 7
@@ -56,7 +63,7 @@ class DishCreateView(generic.CreateView):
 
 class DishDeleteView(generic.DeleteView):
     model = Dish
-    success_url = reverse_lazy("service:cook-list")
+    success_url = reverse_lazy("service:dish-list")
     template_name = "service/dish_delete.html"
 
 

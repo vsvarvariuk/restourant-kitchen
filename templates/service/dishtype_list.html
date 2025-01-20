@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Dish type list</h1>
+    <h1>Dish type list
+        <a href="{% url "service:dishtype-create" %}">
+            <button class="btn btn-secondary">Add</button>
+        </a></h1>
     {% if dishtype_list %}
         {% for dish in dishtype_list %}
            <ul>
