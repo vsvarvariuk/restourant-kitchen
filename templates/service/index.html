@@ -10,8 +10,23 @@
             </a>
             {{ dish_type }}
         </li>
-        <li><strong>Dishes:</strong> {{ dish }}</li>
-        <li><strong>Ingredients:</strong> {{ ingredient }}</li>
-        <li><strong>Cooks:</strong> {{ cooks }}</li>
+        <li>
+            <a href="{% url "service:dish-list" %}">
+                <strong>Dishes:</strong>
+            </a>
+            {{ dish }}
+        </li>
+        <li>
+            <a href="{% url "service:ingredient-list" %}">
+                <strong>Ingredients:</strong>
+            </a>
+            {{ ingredient }}
+        </li>
+        <li>
+            <a href="{% url "service:cook-list" %}">
+                <strong>Cooks:</strong>
+            </a>
+            {{ cooks }}
+        </li>
     </ul>
 {% endblock %}
