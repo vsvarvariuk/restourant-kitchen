@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -23,102 +24,103 @@ def index(request: HttpRequest) -> HttpResponse:
     return render(request, "service/index.html", context=context)
 
 
-class DishTypeListView(generic.ListView):
+class DishTypeListView(LoginRequiredMixin, generic.ListView):
     model = Dishtype
     paginate_by = 6
     template_name = "service/dishtype_list.html"
+    ordering = ("name" ,)
 
 
-class DishTypeCreateView(generic.CreateView):
+class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
     model = Dishtype
     fields = "__all__"
     success_url = reverse_lazy("service:dishtype-list")
     template_name = "service/dishtype_create.html"
 
-class DishTypeDeleteView(generic.DeleteView):
+class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Dishtype
     success_url = reverse_lazy("service:dishtype-list")
     template_name = "service/dishtype_delete.html"
 
 
-class DishTypeDetailView(generic.DetailView):
+class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dishtype
     template_name = "service/dishtype_detail.html"
 
-class DishListView(generic.ListView):
+class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
     paginate_by = 6
     template_name = "service/dish_list.html"
+    ordering = ("name" ,)
 
 
-class DishDetailView(generic.DetailView):
+class DishDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dish
     template_name = "service/dish_detail.html"
 
 
-class DishUpdateView(generic.UpdateView):
+class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Dish
     fields = "__all__"
     success_url = reverse_lazy("service:dish-list")
     template_name = "service/dish_form.html"
 
 
-class DishCreateView(generic.CreateView):
+class DishCreateView(LoginRequiredMixin, generic.CreateView):
     model = Dish
     fields = "__all__"
     success_url = reverse_lazy("service:dish-list")
     template_name = "service/dish_form.html"
 
 
-class DishDeleteView(generic.DeleteView):
+class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Dish
     success_url = reverse_lazy("service:dish-list")
     template_name = "service/dish_delete.html"
 
 
-class IngredientListView(generic.ListView):
+class IngredientListView(LoginRequiredMixin, generic.ListView):
     model = Ingredient
     paginate_by = 6
     template_name = "service/ingredient_list.html"
+    ordering = ("name" ,)
 
 
-class IngredientCreateView(generic.CreateView):
+class IngredientCreateView(LoginRequiredMixin, generic.CreateView):
     model = Ingredient
     fields = "__all__"
     success_url = reverse_lazy("service:ingredient-list")
     template_name = "service/ingredient_create.html"
 
 
-class CookListView(generic.ListView):
+class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
     paginate_by = 6
     template_name = "service/cook_list.html"
+    ordering = ("username", )
 
 
-class CookCreateView(generic.CreateView):
+class CookCreateView(LoginRequiredMixin, generic.CreateView):
     model = Cook
     fields = ("username", "first_name", "last_name", "years_of_experience")
     success_url = reverse_lazy("service_url:cook-list")
     template_name = "service/cook_form.html"
 
 
-class CookDetailView(generic.DetailView):
+class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
     template_name = "service/cook_detail.html"
 
 
-class CookDeleteView(generic.DeleteView):
+class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Cook
     success_url = reverse_lazy("service:cook-list")
     template_name = "service/cook_delete.html"
 
 
-class CookUpdateView(generic.UpdateView):
+class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Cook
     fields = ("username", "first_name", "last_name", "years_of_experience")
     success_url = reverse_lazy("service:cook-list")
     template_name = "service/cook_form.html"
-
-
-
 
