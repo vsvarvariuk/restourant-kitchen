@@ -37,3 +37,47 @@ class CookCreationForm(UserCreationForm):
         if years_of_experience < 0:
             raise ValidationError("Years of experience can not be less than 0")
         return years_of_experience
+
+
+class DishSearchForm(forms.ModelForm):
+    name = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={"placeholder": "Search by name"}
+        )
+    )
+
+
+class IngredientSearchForm(forms.ModelForm):
+    name = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={"placeholder": "Search by name"}
+        )
+    )
+
+
+class DishTypeSearchForm(forms.ModelForm):
+    name = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={"placeholder": "Search by name"}
+        )
+    )
+
+
+class CookSearchForm(forms.ModelForm):
+    username = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={"placeholder": "Search by username"}
+        )
+    )
