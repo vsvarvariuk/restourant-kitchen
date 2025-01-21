@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
+from service.forms import DishFrom
 from service.models import (Ingredient,
                             Dishtype,
                             Dish,
@@ -68,7 +69,7 @@ class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class DishCreateView(LoginRequiredMixin, generic.CreateView):
     model = Dish
-    fields = "__all__"
+    form_class = DishFrom
     success_url = reverse_lazy("service:dish-list")
     template_name = "service/dish_form.html"
 

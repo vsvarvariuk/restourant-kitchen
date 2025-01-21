@@ -138,4 +138,4 @@ AUTH_USER_MODEL = "service.Cook"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = "/"
