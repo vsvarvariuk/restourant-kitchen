@@ -1,8 +1,14 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
     <h1>Cook list <a href="{% url "service_url:cook-create" %}">
         <button class="btn btn-secondary">Add cook</button>
     </a></h1>
+    <form action=""method="get" class="form-inline">
+    {% csrf_token %}
+    {{ search_field|crispy }}
+        <input type="submit" value="Search" class="btn btn-primary">
+    </form>
     {% if cook_list %}
         {% for cook in cook_list %}
            <ul>

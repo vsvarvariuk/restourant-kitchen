@@ -4,7 +4,10 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from service.forms import DishFrom, CookCreationForm
+from service.forms import (DishFrom,
+                           CookCreationForm,
+                           DishTypeSearchForm,
+                           DishSearchForm, IngredientSearchForm, CookSearchForm)
 from service.models import (Ingredient,
                             Dishtype,
                             Dish,
@@ -29,7 +32,21 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
     model = Dishtype
     paginate_by = 6
     template_name = "service/dishtype_list.html"
-    ordering = ("name" ,)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(DishTypeListView, self).get_context_data(**kwargs)
+        context["search_field"] = DishTypeSearchForm()
+        return context
+
+    def get_queryset(self):
+        queryset = Dishtype.objects.all()
+        search_field = self.request.GET.get("name", "")
+        if search_field:
+            queryset = queryset.filter(name__icontains=search_field)
+            return queryset
+        return queryset
+
+
 
 
 class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
@@ -52,7 +69,21 @@ class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
     paginate_by = 6
     template_name = "service/dish_list.html"
-    ordering = ("name" ,)
+
+    def get_context_data(
+        self, *, object_list = ..., **kwargs
+    ):
+        context = super(DishListView, self).get_context_data(**kwargs)
+        context["search_field"] = DishSearchForm()
+        return context
+
+    def get_queryset(self):
+        queryset = Dish.objects.all()
+        search = self.request.GET.get("name", "")
+        if search:
+            queryset = queryset.filter(name__icontains=search)
+            return queryset
+        return queryset
 
 
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
@@ -84,7 +115,21 @@ class IngredientListView(LoginRequiredMixin, generic.ListView):
     model = Ingredient
     paginate_by = 6
     template_name = "service/ingredient_list.html"
-    ordering = ("name" ,)
+
+    def get_context_data(
+        self, *, object_list = ..., **kwargs
+    ):
+        context = super(IngredientListView, self).get_context_data(**kwargs)
+        context["search_field"] = IngredientSearchForm()
+        return context
+
+    def get_queryset(self):
+        queryset = Ingredient.objects.all()
+        search = self.request.GET.get("name", "")
+        if search:
+            queryset = queryset.filter(name__icontains=search)
+            return queryset
+        return queryset
 
 
 class IngredientCreateView(LoginRequiredMixin, generic.CreateView):
@@ -98,7 +143,21 @@ class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
     paginate_by = 6
     template_name = "service/cook_list.html"
-    ordering = ("username", )
+
+    def get_context_data(
+        self, *, object_list = ..., **kwargs
+    ):
+        context = super(CookListView, self).get_context_data(**kwargs)
+        context["search_field"] = CookSearchForm()
+        return context
+
+    def get_queryset(self):
+        queryset = Cook.objects.all()
+        search = self.request.GET.get("username", "")
+        if search:
+            queryset = queryset.filter(username__icontains=search)
+            return queryset
+        return queryset
 
 
 class CookCreateView(LoginRequiredMixin, generic.CreateView):

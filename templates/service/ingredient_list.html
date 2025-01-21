@@ -1,10 +1,16 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
     <h1>Ingredient list
         <a href="{% url "service:ingredient-create" %}">
             <button class="btn btn-secondary">Add ingredient</button>
         </a>
     </h1>
+    <form action=""method="get" class="form-inline">
+    {% csrf_token %}
+    {{ search_field|crispy }}
+        <input type="submit" value="Search" class="btn btn-primary">
+    </form>
     {% if ingredient_list %}
         {% for ingredient in ingredient_list %}
            <ul>

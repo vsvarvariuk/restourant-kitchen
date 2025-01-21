@@ -39,7 +39,7 @@ class CookCreationForm(UserCreationForm):
         return years_of_experience
 
 
-class DishSearchForm(forms.ModelForm):
+class DishSearchForm(forms.Form):
     name = forms.CharField(
         max_length=255,
         required=False,
@@ -50,7 +50,7 @@ class DishSearchForm(forms.ModelForm):
     )
 
 
-class IngredientSearchForm(forms.ModelForm):
+class IngredientSearchForm(forms.Form):
     name = forms.CharField(
         max_length=255,
         required=False,
@@ -61,18 +61,18 @@ class IngredientSearchForm(forms.ModelForm):
     )
 
 
-class DishTypeSearchForm(forms.ModelForm):
+class DishTypeSearchForm(forms.Form):
     name = forms.CharField(
         max_length=255,
         required=False,
         label="",
         widget=forms.TextInput(
-            attrs={"placeholder": "Search by name"}
+            attrs={"placeholder": "Search by dish type"}
         )
     )
 
 
-class CookSearchForm(forms.ModelForm):
+class CookSearchForm(forms.Form):
     username = forms.CharField(
         max_length=255,
         required=False,

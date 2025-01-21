@@ -1,9 +1,15 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 {% block content %}
     <h1>Dish type list
         <a href="{% url "service:dishtype-create" %}">
             <button class="btn btn-secondary">Add dish type</button>
         </a></h1>
+    <form action="" method="get" class="form-inline">
+    {% csrf_token %}
+    {{ search_field|crispy }}
+        <input type="submit" value="Search" class="btn btn-primary">
+    </form>
     {% if dishtype_list %}
         <table class="table">
         <thead>
