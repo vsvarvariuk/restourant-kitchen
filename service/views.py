@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from service.forms import DishFrom
+from service.forms import DishFrom, CookCreationForm
 from service.models import (Ingredient,
                             Dishtype,
                             Dish,
@@ -103,7 +103,7 @@ class CookListView(LoginRequiredMixin, generic.ListView):
 
 class CookCreateView(LoginRequiredMixin, generic.CreateView):
     model = Cook
-    fields = ("username", "first_name", "last_name", "years_of_experience")
+    form_class = CookCreationForm
     success_url = reverse_lazy("service_url:cook-list")
     template_name = "service/cook_form.html"
 

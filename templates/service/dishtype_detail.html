@@ -4,7 +4,9 @@
     <ul>
         {% if dishtype.dish_set.all %}
             {% for dish in dishtype.dish_set.all %}
-            <li>{{ dish.name }}</li>
+            <li>
+                <a href="{% url "service:dish-detail" pk=dish.id %}">{{ dish.name }}</a>
+            </li>
             {% endfor %}
             {% else %}
             <p>There are no dishes type {{ dishtype.name }}</p>
