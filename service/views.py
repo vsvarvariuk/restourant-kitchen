@@ -7,7 +7,9 @@ from django.views import generic
 from service.forms import (DishFrom,
                            CookCreationForm,
                            DishTypeSearchForm,
-                           DishSearchForm, IngredientSearchForm, CookSearchForm)
+                           DishSearchForm,
+                           IngredientSearchForm,
+                           CookSearchForm)
 from service.models import (Ingredient,
                             Dishtype,
                             Dish,
@@ -35,7 +37,9 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(DishTypeListView, self).get_context_data(**kwargs)
-        context["search_field"] = DishTypeSearchForm()
+        context["search_field"] = DishTypeSearchForm(
+            initial={"name": self.request.GET.get("name", "")}
+        )
         return context
 
     def get_queryset(self):
@@ -47,13 +51,12 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
         return queryset
 
 
-
-
 class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
     model = Dishtype
     fields = "__all__"
     success_url = reverse_lazy("service:dishtype-list")
     template_name = "service/dishtype_create.html"
+
 
 class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Dishtype
@@ -65,6 +68,7 @@ class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dishtype
     template_name = "service/dishtype_detail.html"
 
+
 class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
     paginate_by = 6
@@ -74,7 +78,9 @@ class DishListView(LoginRequiredMixin, generic.ListView):
         self, *, object_list = ..., **kwargs
     ):
         context = super(DishListView, self).get_context_data(**kwargs)
-        context["search_field"] = DishSearchForm()
+        context["search_field"] = DishSearchForm(
+            initial={"name": self.request.GET.get("name", "")}
+        )
         return context
 
     def get_queryset(self):
@@ -120,7 +126,9 @@ class IngredientListView(LoginRequiredMixin, generic.ListView):
         self, *, object_list = ..., **kwargs
     ):
         context = super(IngredientListView, self).get_context_data(**kwargs)
-        context["search_field"] = IngredientSearchForm()
+        context["search_field"] = IngredientSearchForm(
+            initial={"name": self.request.GET.get("name", "")}
+        )
         return context
 
     def get_queryset(self):
@@ -148,7 +156,9 @@ class CookListView(LoginRequiredMixin, generic.ListView):
         self, *, object_list = ..., **kwargs
     ):
         context = super(CookListView, self).get_context_data(**kwargs)
-        context["search_field"] = CookSearchForm()
+        context["search_field"] = CookSearchForm(
+            initial={"username": self.request.GET.get("username", "")}
+        )
         return context
 
     def get_queryset(self):
@@ -183,4 +193,3 @@ class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
     fields = ("username", "first_name", "last_name", "years_of_experience")
     success_url = reverse_lazy("service:cook-list")
     template_name = "service/cook_form.html"
-
