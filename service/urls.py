@@ -40,7 +40,7 @@ urlpatterns = [
         name="ingredient-create"),
    path("cooks/", CookListView.as_view(), name="cook-list"),
    path("cooks-create/", CookCreateView.as_view(), name="cook-create"),
-   path("cooks-update/<int:pk>", CookUpdateView.as_view(), name="cook-update"),
+   path("cooks-update/<int:pk>/", CookUpdateView.as_view(), name="cook-update"),
    path("cooks-delete/<int:pk>/",
         CookDeleteView.as_view(),
         name="cook-delete"),
