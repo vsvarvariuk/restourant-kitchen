@@ -99,7 +99,7 @@ class DishDetailView(LoginRequiredMixin, generic.DetailView):
 
 class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Dish
-    fields = "__all__"
+    form_class = DishFrom
     success_url = reverse_lazy("service:dish-list")
     template_name = "service/dish_form.html"
 
