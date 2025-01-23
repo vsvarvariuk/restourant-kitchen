@@ -21,17 +21,24 @@
 
         <!-- Dish list -->
         {% if dish_list %}
-            <div class="list-group">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 {% for dish in dish_list %}
-                    <a href="{% url 'service:dish-detail' pk=dish.id %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                        <span>{{ dish.name }}</span>
-                        <span class="badge bg-primary rounded-pill">View Details</span>
-                    </a>
+                    <div class="col">
+                        <div class="card shadow-sm border-light rounded">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ dish.name }}</h5>
+                                <p class="card-text">{{ dish.dish_type.name|truncatewords:20 }}</p>
+                                <a href="{% url 'service:dish-detail' pk=dish.id %}" class="btn btn-primary stretched-link">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
             </div>
         {% else %}
             <div class="alert alert-warning text-center" role="alert">
-                No dishes found.
+                There are no dishes available for the type "{{ dishtype.name }}".
             </div>
         {% endif %}
     </div>

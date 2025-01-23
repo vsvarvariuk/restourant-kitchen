@@ -21,16 +21,20 @@
 
         <!-- Ingredient list -->
         {% if ingredient_list %}
-            <div class="list-group">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 {% for ingredient in ingredient_list %}
-                    <div class="list-group-item">
-                        <strong>{{ ingredient.name }}</strong>
+                    <div class="col">
+                        <div class="card shadow-sm border-light rounded">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ ingredient.name }}</h5>
+                            </div>
+                        </div>
                     </div>
                 {% endfor %}
             </div>
         {% else %}
             <div class="alert alert-warning text-center" role="alert">
-                No ingredients found.
+                There are no dishes available for the type "{{ dishtype.name }}".
             </div>
         {% endif %}
     </div>
