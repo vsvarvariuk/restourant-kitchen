@@ -1,43 +1,64 @@
 {% extends "base.html" %}
-{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
 {% block content %}
-    <h1>Dish type list
-        <a href="{% url "service:dishtype-create" %}">
-            <button class="btn btn-secondary">Add dish type</button>
-        </a></h1>
-    <form action="" method="get" class="form-inline">
-    {% csrf_token %}
-    {{ search_field|crispy }}
-        <input type="submit" value="Search" class="btn btn-primary">
-    </form>
-    {% if dishtype_list %}
-        <table class="table">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Dish type</th>
-            <th>All dishes</th>
-            <th>DELETE</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for dishtype in dishtype_list %}
-            <tr>
-            <td>{{ dishtype.id }}</td>
-            <td>{{ dishtype.name }}</td>
-            <td>
-                <a href="{% url "service:dishtype-detail" pk=dishtype.pk %}">Show all</a>
-            </td>
-            <td>
-                <a href="{% url "service_url:dishtype-delete" pk=dishtype.id %}">
-                    <button class="btn btn-danger">Delete</button>
-                </a>
-            </td>
-            </tr>
-        {% endfor %}
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="text-primary">Dish Type List</h1>
+            <a href="{% url 'service:dishtype-create' %}" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Add Dish Type
+            </a>
+        </div>
 
-        </tbody>
-        </table>
+        <!-- Search Form -->
+        <form action="" method="get" class="row g-3 mb-4">
+            {% csrf_token %}
+            <div class="col-md-10">
+                {{ search_field|crispy }}
+            </div>
+            <div class="col-md-2 d-grid">
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-search"></i> Search
+                </button>
+            </div>
+        </form>
 
-    {% endif %}
+        <!-- Dish Type Table -->
+        {% if dishtype_list %}
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Dish Type</th>
+                            <th scope="col" class="text-center">View Dishes</th>
+                            <th scope="col" class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for dishtype in dishtype_list %}
+                            <tr>
+                                <td>{{ dishtype.id }}</td>
+                                <td>{{ dishtype.name }}</td>
+                                <td class="text-center">
+                                    <a href="{% url 'service:dishtype-detail' pk=dishtype.pk %}" class="btn btn-info btn-sm">
+                                        <i class="bi bi-eye"></i> Show All
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <a href="{% url 'service:dishtype-delete' pk=dishtype.id %}" class="btn btn-danger btn-sm">
+                                        <i class="bi bi-trash"></i> Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="alert alert-warning text-center" role="alert">
+                No dish types found. <a href="{% url 'service:dishtype-create' %}" class="alert-link">Add a new dish type</a>.
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}

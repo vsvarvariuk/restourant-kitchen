@@ -1,22 +1,54 @@
-<ul class="sidebar-nav list-group">
-    {% if user.is_authenticated %}
-        <li><strong>User:</strong> {{ user.username }}</li>
-        <li>
-            <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-warning">Log out</button>
-            </form>
-        </li>
-    {% else %}
-        <li>
-            <a href="{% url 'login' %}">
-                <button class="btn btn-primary">Click to login</button>
-            </a>
-        </li>
-    {% endif %}
-    <li class="list-group-item"><a href="{% url 'service:index' %}">Home</a></li>
-    <li class="list-group-item"><a href="{% url 'service:dishtype-list' %}">All Dish type</a></li>
-    <li class="list-group-item"><a href="{% url 'service_url:dish-list' %}">All Dishes</a></li>
-    <li class="list-group-item"><a href="{% url 'service:ingredient-list' %}">All Ingredients</a></li>
-    <li class="list-group-item"><a href="{% url 'service:cook-list' %}">All Cooks</a></li>
-</ul>
+{% load crispy_forms_tags %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-lg-5">
+        {% if user.is_authenticated %}
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="">
+                        <strong>User: {{ user.username }}</strong>
+                    </a>
+                </li>
+            </ul>
+        {% endif %}
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url "service:index" %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url "service:dishtype-list" %}">All dish types</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "service:dish-list" %}">All dishes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "service:ingredient-list" %}">All ingredients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "service:cook-list" %}">All cooks</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <form action="{% url "logout" %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm ms-3">
+                                <i class="bi bi-box-arrow-right"></i> Log out
+                            </button>
+                        </form>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

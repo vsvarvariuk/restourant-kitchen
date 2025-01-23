@@ -1,11 +1,20 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-    {% load crispy_forms_tags %}
-    <h1>Delete dish type {{ dishtype.name }}</h1>
-    <h2>You really want to delete {{ dishtype.name }} ? All dishes belonging to this type will be deleted!</h2>
-    <form action="" method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-        <input type="submit" value="Delete" class="btn btn-danger">
-    </form>
+    <div class="container my-5">
+        <h1 class="text-center mb-4 text-danger display-4">Delete Dish Type "{{ dishtype.name }}"</h1>
+        <div class="alert alert-warning text-center" role="alert">
+            <h3>Are you sure you want to delete the dish type "{{ dishtype.name }}"?</h3>
+            <p class="lead">All dishes of this type will also be deleted permanently!</p>
+        </div>
+
+        <form action="" method="post" class="text-center">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form|crispy }}
+            </div>
+            <button type="submit" class="btn btn-lg btn-danger">Delete Dish Type</button>
+            <a href="{% url 'service:dishtype-list' %}" class="btn btn-secondary btn-lg ms-3">Cancel</a>
+        </form>
+    </div>
 {% endblock %}

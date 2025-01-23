@@ -2,11 +2,19 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <h1>Create dish type</h1>
-  <form action="" method="post" novalidate>
-    {% csrf_token %}
-    {{ form|crispy }}
+    <div class="container my-5">
+        <h1 class="text-center mb-4 display-4 text-success">Create New Dish Type</h1>
+        <div class="alert alert-info text-center" role="alert">
+            <h3 class="mb-3">Please fill in the details below to create a new dish type.</h3>
+        </div>
 
-    <input type="submit" value="Submit" class="btn btn-primary">
-  </form>
+        <form action="" method="post" novalidate class="text-center">
+            {% csrf_token %}
+            <div class="mb-4">
+                {{ form|crispy }}
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+            <a href="{% url 'service:dishtype-list' %}" class="btn btn-secondary btn-lg ms-3">Cancel</a>
+        </form>
+    </div>
 {% endblock %}

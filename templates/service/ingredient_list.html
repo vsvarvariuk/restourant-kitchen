@@ -1,21 +1,37 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+
 {% block content %}
-    <h1>Ingredient list
-        <a href="{% url "service:ingredient-create" %}">
-            <button class="btn btn-secondary">Add ingredient</button>
-        </a>
-    </h1>
-    <form action=""method="get" class="form-inline">
-    {% csrf_token %}
-    {{ search_field|crispy }}
-        <input type="submit" value="Search" class="btn btn-primary">
-    </form>
-    {% if ingredient_list %}
-        {% for ingredient in ingredient_list %}
-           <ul>
-           <li><strong>{{ ingredient.name }}</strong></li>
-           </ul>
-        {% endfor %}
-    {% endif %}
+    <div class="container my-5">
+        <h1 class="text-center mb-4 display-4 text-primary">
+            Ingredient List
+            <a href="{% url 'service:ingredient-create' %}" class="ms-3">
+                <button class="btn btn-lg btn-success">Add Ingredient</button>
+            </a>
+        </h1>
+
+        <!-- Search form -->
+        <form action="" method="get" class="form-inline mb-4">
+            {% csrf_token %}
+            <div class="mb-3 d-flex justify-content-center">
+                {{ search_field|crispy }}
+                <input type="submit" value="Search" class="btn btn-lg btn-info ms-3">
+            </div>
+        </form>
+
+        <!-- Ingredient list -->
+        {% if ingredient_list %}
+            <div class="list-group">
+                {% for ingredient in ingredient_list %}
+                    <div class="list-group-item">
+                        <strong>{{ ingredient.name }}</strong>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-warning text-center" role="alert">
+                No ingredients found.
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}

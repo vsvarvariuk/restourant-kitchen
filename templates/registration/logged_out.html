@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>Logged out!</p>
-
-<a href="{% url 'login'%}">Click here to login again.</a>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center">
+        <h1 class="display-4 text-danger">Logged out!</h1>
+        <p class="lead">You have been successfully logged out of your account.</p>
+        <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Click here to login again</a>
+    </div>
+</div>
 {% endblock %}

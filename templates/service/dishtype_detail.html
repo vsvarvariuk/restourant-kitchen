@@ -1,16 +1,30 @@
 {% extends "base.html" %}
-{% block content %}
-    <h1>All dishes  type "{{ dishtype.name }}"</h1>
-    <ul>
-        {% if dishtype.dish_set.all %}
-            {% for dish in dishtype.dish_set.all %}
-            <li>
-                <a href="{% url "service:dish-detail" pk=dish.id %}">{{ dish.name }}</a>
-            </li>
-            {% endfor %}
-            {% else %}
-            <p>There are no dishes type {{ dishtype.name }}</p>
-        {% endif %}
-    </ul>
 
+{% block content %}
+    <div class="container my-5">
+        <h1 class="text-center mb-4 display-4">Explore Dishes of Type "{{ dishtype.name }}"</h1>
+
+        {% if dishtype.dish_set.all %}
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                {% for dish in dishtype.dish_set.all %}
+                    <div class="col">
+                        <div class="card shadow-sm border-light rounded">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ dish.name }}</h5>
+                                <p class="card-text">{{ dish.description|truncatewords:20 }}</p>
+                                <a href="{% url 'service:dish-detail' pk=dish.id %}" class="btn btn-primary stretched-link">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-warning text-center" role="alert">
+                There are no dishes available for the type "{{ dishtype.name }}".
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}
+

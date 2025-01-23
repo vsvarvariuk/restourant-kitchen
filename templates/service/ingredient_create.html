@@ -2,11 +2,19 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <h1>Create ingredient</h1>
-  <form action="" method="post" novalidate>
-    {% csrf_token %}
-    {{ form|crispy }}
+    <div class="container my-5">
+        <h1 class="text-center mb-4 display-4 text-success">Create New Ingredient</h1>
 
-    <input type="submit" value="Submit" class="btn btn-primary">
-  </form>
+        <!-- Ingredient form -->
+        <form action="" method="post" novalidate class="form-container">
+            {% csrf_token %}
+            <div class="mb-4">
+                {{ form|crispy }}
+            </div>
+            <div class="form-actions text-center">
+                <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                <a href="{% url 'service:ingredient-list' %}" class="btn btn-lg btn-secondary ms-3">Cancel</a>
+            </div>
+        </form>
+    </div>
 {% endblock %}

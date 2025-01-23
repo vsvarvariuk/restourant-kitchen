@@ -1,32 +1,90 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Welcome to restaurant kitchen service</h1>
-    <h2>We have:</h2>
-    <ul>
-        <li>
-            <a href="{% url "service:dishtype-list" %}">
-                <strong>Dishtypes:</strong>
-            </a>
-            {{ dish_type }}
-        </li>
-        <li>
-            <a href="{% url "service:dish-list" %}">
-                <strong>Dishes:</strong>
-            </a>
-            {{ dish }}
-        </li>
-        <li>
-            <a href="{% url "service:ingredient-list" %}">
-                <strong>Ingredients:</strong>
-            </a>
-            {{ ingredient }}
-        </li>
-        <li>
-            <a href="{% url "service:cook-list" %}">
-                <strong>Cooks:</strong>
-            </a>
-            {{ cooks }}
-        </li>
-    </ul>
+    <header class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <div class="py-5">
+                <h1 class="display-4 fw-bold">Welcome to Our Restaurant Kitchen Service</h1>
+                <p class="lead">
+                    Explore available types of dishes, dishes, ingredients, and chefs.
+                    Create new dishes and their types, and assign cooks for preparing them all.
+                </p>
+                {% if not user.is_authenticated %}
+                    <a class="btn btn-light btn-lg mt-3" href="{% url 'login' %}">
+                    <i class="bi bi-box-arrow-in-right"></i> Click here to login
+                    </a>
+                {% endif %}
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <section class="pt-5">
+        <div class="container">
+            <!-- Features Section -->
+            <div class="row text-center">
+                <!-- Dish Type -->
+                <div class="col-lg-4 mb-5">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="feature-icon bg-primary text-white rounded-circle mb-4 mx-auto d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="bi bi-list"></i>
+                            </div>
+                            <h2 class="fs-4 fw-bold">Dish Type</h2>
+                            <p class="text-muted">Available dish types: <strong>{{ dish_type }}</strong></p>
+                            <a href="{% url 'service:dishtype-list' %}" class="btn btn-primary btn-sm">
+                                Show All
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dishes -->
+                <div class="col-lg-4 mb-5">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="feature-icon bg-success text-white rounded-circle mb-4 mx-auto d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="bi bi-basket"></i>
+                            </div>
+                            <h2 class="fs-4 fw-bold">Dishes</h2>
+                            <p class="text-muted">Total dishes: <strong>{{ dish }}</strong></p>
+                            <a href="{% url 'service:dish-list' %}" class="btn btn-success btn-sm">
+                                Show All
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cook -->
+                <div class="col-lg-4 mb-5">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="feature-icon bg-warning text-white rounded-circle mb-4 mx-auto d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="bi bi-person"></i>
+                            </div>
+                            <h2 class="fs-4 fw-bold">Cook</h2>
+                            <p class="text-muted">Total cooks: <strong>{{ cooks }}</strong></p>
+                            <a href="{% url 'service:cook-list' %}" class="btn btn-warning btn-sm">
+                                Show All
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Ingredient -->
+                <div class="col-lg-4 mb-5 mx-auto">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <div class="feature-icon bg-danger text-white rounded-circle mb-4 mx-auto d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="bi bi-basket3"></i>
+                            </div>
+                            <h2 class="fs-4 fw-bold">Ingredient</h2>
+                            <p class="text-muted">Total ingredients: <strong>{{ ingredient }}</strong></p>
+                            <a href="{% url 'service:ingredient-list' %}" class="btn btn-danger btn-sm">
+                                Show All
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
