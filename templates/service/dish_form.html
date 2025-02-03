@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container my-5">
+        <h1 class="text-center mb-4 display-4 text-warning">
+            {{ object|yesno:"Update,Create" }} Dish
+        </h1>
+
+        <!-- Form -->
+        <form action="" method="post" novalidate class="form-container">
+            {% csrf_token %}
+            <div class="mb-4">
+                {{ form|crispy }}
+            </div>
+            <div class="form-actions text-center">
+                <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                <a href="{% url 'service:dish-list' %}" class="btn btn-lg btn-secondary ms-3">Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

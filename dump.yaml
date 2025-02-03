@@ -1,0 +1,437 @@
+[
+{
+    "model": "service.cook",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$tos6gWZ1t8JI4uEPjzat0s$28eIouylQD3lNPALH0esaolqmv1Rz13qnpz1KBg+baw=",
+        "last_login": "2025-01-18T13:23:09.123Z",
+        "is_superuser": true,
+        "username": "var_vas",
+        "first_name": "Vasia",
+        "last_name": "Varvariuk",
+        "email": "vas@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-01-18T13:22:39.259Z",
+        "years_of_experience": 5,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "service.cook",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$r4myTMZ2WjRBITd99g1qDG$AZ08DoXnS/nQcAwT3ShabN3FNjurXuKjB4Ej9mt9XOY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "ros_rav",
+        "first_name": "Rostislav",
+        "last_name": "Ravliuk",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-01-18T13:27:35.248Z",
+        "years_of_experience": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "service.cook",
+    "pk": 4,
+    "fields": {
+        "password": "",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "iva_bgdv",
+        "first_name": "Ivanna",
+        "last_name": "Bogdanova",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-01-18T15:29:05.605Z",
+        "years_of_experience": 5,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "service.cook",
+    "pk": 5,
+    "fields": {
+        "password": "",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "adam_sash",
+        "first_name": "Oleksandr",
+        "last_name": "Adamchuk",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-01-20T14:19:02.138Z",
+        "years_of_experience": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "service.cook",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$j3KrjnzBPOpTLJJoqWbxoI$1NCQLIeB2mEDN1t0RBMAUT8jw2chjHtw74xAfp89gIY=",
+        "last_login": "2025-01-29T14:51:08.643Z",
+        "is_superuser": true,
+        "username": "Bog_stupka",
+        "first_name": "Dogdan",
+        "last_name": "Stupka",
+        "email": "vas@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-01-21T11:05:01.365Z",
+        "years_of_experience": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "service.cook",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$wjc0bXW6ZAoSKt1ynuMvFB$7nFbEw8pUGkX12QmBnlr1a40FUaPp49elI8Dp7Y9Q+4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Sofia_bogd",
+        "first_name": "Sofia",
+        "last_name": "Melnuk",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-01-21T12:48:48.677Z",
+        "years_of_experience": 0,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "service.cook",
+    "pk": 9,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$dWtUBI5MPCmuQyV8C6xm7S$9zhxrMEEoQ5dG36BTQPL10bZkk96ko5Rn/SLb+KCQ/A=",
+        "last_login": "2025-01-30T12:03:24.190Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-01-29T12:07:29.918Z",
+        "years_of_experience": 0,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "service.dishtype",
+    "pk": 1,
+    "fields": {
+        "name": "Appetizers"
+    }
+},
+{
+    "model": "service.dishtype",
+    "pk": 3,
+    "fields": {
+        "name": "Drinks"
+    }
+},
+{
+    "model": "service.dishtype",
+    "pk": 4,
+    "fields": {
+        "name": "Main Courses"
+    }
+},
+{
+    "model": "service.dishtype",
+    "pk": 5,
+    "fields": {
+        "name": "Desserts"
+    }
+},
+{
+    "model": "service.dishtype",
+    "pk": 6,
+    "fields": {
+        "name": "Soups"
+    }
+},
+{
+    "model": "service.dishtype",
+    "pk": 7,
+    "fields": {
+        "name": "Salads"
+    }
+},
+{
+    "model": "service.dishtype",
+    "pk": 8,
+    "fields": {
+        "name": "Beverages"
+    }
+},
+{
+    "model": "service.dishtype",
+    "pk": 9,
+    "fields": {
+        "name": "Side Dishes"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 1,
+    "fields": {
+        "name": "Cucumber"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 2,
+    "fields": {
+        "name": "baguette"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 3,
+    "fields": {
+        "name": "tomatoes"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 4,
+    "fields": {
+        "name": "basil"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 5,
+    "fields": {
+        "name": "garlic"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 6,
+    "fields": {
+        "name": "olive oil"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 7,
+    "fields": {
+        "name": "mushrooms"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 8,
+    "fields": {
+        "name": "cream cheese"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 9,
+    "fields": {
+        "name": "breadcrumbs"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 10,
+    "fields": {
+        "name": "parsley"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 11,
+    "fields": {
+        "name": "rice paper"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 12,
+    "fields": {
+        "name": "shrimp"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 13,
+    "fields": {
+        "name": "cabbage"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 14,
+    "fields": {
+        "name": "cabage"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 15,
+    "fields": {
+        "name": "carrot"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 16,
+    "fields": {
+        "name": "byriak"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 17,
+    "fields": {
+        "name": "onion"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 18,
+    "fields": {
+        "name": "meat"
+    }
+},
+{
+    "model": "service.ingredient",
+    "pk": 19,
+    "fields": {
+        "name": "potato"
+    }
+},
+{
+    "model": "service.dish",
+    "pk": 1,
+    "fields": {
+        "name": "Spring Rolls",
+        "description": "spring roolls with vegetables",
+        "price": "15.20",
+        "dish_type": 1,
+        "cooks": [
+            2
+        ],
+        "ingredients": [
+            1
+        ]
+    }
+},
+{
+    "model": "service.dish",
+    "pk": 7,
+    "fields": {
+        "name": "Bruschetta",
+        "description": "A classic Italian appetizer of toasted bread topped with fresh tomatoes, basil, and garlic.",
+        "price": "20.50",
+        "dish_type": 1,
+        "cooks": [
+            2,
+            1
+        ],
+        "ingredients": [
+            2,
+            4,
+            5,
+            6,
+            3
+        ]
+    }
+},
+{
+    "model": "service.dish",
+    "pk": 8,
+    "fields": {
+        "name": "Stuffed Mushrooms",
+        "description": "Mushrooms stuffed with a savory mixture of cream cheese, breadcrumbs, and herbs.",
+        "price": "15.90",
+        "dish_type": 1,
+        "cooks": [
+            5
+        ],
+        "ingredients": [
+            9,
+            8,
+            7
+        ]
+    }
+},
+{
+    "model": "service.dish",
+    "pk": 9,
+    "fields": {
+        "name": "Pasta Carbonara",
+        "description": "A creamy pasta dish with eggs, bacon, and parmesan cheese, finished with a black pepper kick.",
+        "price": "25.75",
+        "dish_type": 4,
+        "cooks": [
+            1
+        ],
+        "ingredients": [
+            13,
+            11,
+            12
+        ]
+    }
+},
+{
+    "model": "service.dish",
+    "pk": 10,
+    "fields": {
+        "name": "Burritos",
+        "description": "Flour tortillas filled with rice, beans, chicken, and sour cream, wrapped up for a flavorful bite.",
+        "price": "13.00",
+        "dish_type": 4,
+        "cooks": [
+            4
+        ],
+        "ingredients": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "service.dish",
+    "pk": 11,
+    "fields": {
+        "name": "borsch",
+        "description": "national ukrainian bludo",
+        "price": "10.50",
+        "dish_type": 4,
+        "cooks": [
+            5
+        ],
+        "ingredients": [
+            16,
+            14,
+            15,
+            5,
+            18,
+            17,
+            19
+        ]
+    }
+}
+]

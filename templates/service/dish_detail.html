@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container my-5">
+        <h1 class="text-center mb-4 display-4 text-primary">
+            Details about {{ dish.name }}
+        </h1>
+
+        <ul class="list-group mb-4">
+            <li class="list-group-item">
+                <strong>Dish Type:</strong> {{ dish.dish_type }}
+            </li>
+            <li class="list-group-item">
+                <strong>Description:</strong> {{ dish.description }}
+            </li>
+            <li class="list-group-item">
+                <strong>Price:</strong> ${{ dish.price }}
+            </li>
+            <li class="list-group-item">
+                <strong>Ingredients:</strong>
+                <ul class="list-unstyled">
+                    {% for ingredient in dish.ingredients.all %}
+                        <li>{{ ingredient.name }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li class="list-group-item">
+                <strong>Cooks:</strong>
+                <ul class="list-unstyled">
+                    {% for cook in dish.cooks.all %}
+                        <li>{{ cook.username }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+
+        <div class="text-center">
+            <a href="{% url 'service:dish-update' pk=dish.id %}">
+                <button class="btn btn-warning btn-lg mx-2">Update</button>
+            </a>
+            <a href="{% url 'service:dish-delete' pk=dish.id %}">
+                <button class="btn btn-danger btn-lg mx-2">Delete</button>
+            </a>
+        </div>
+    </div>
+{% endblock %}
